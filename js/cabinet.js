@@ -166,6 +166,10 @@ $(document).ready(function() {
 		filterUpdate();
 	});
 
+	$('body').on('keyup', '.manager-table-filter-params-window-input .form-input input', function(e) {
+		filterUpdate();
+	});
+
 	$('body').on('change', '.manager-table-filter .form-select select', function(e) {
 		filterUpdate();
 	});
@@ -340,13 +344,37 @@ $(document).ready(function() {
 		}
 	});
 
-	$('body').on('change', '.meet-add-company-wrapper .manager-table-filter .form-checkbox input', function(e) {
-		meetAddFilterUpdate();
-	});
+    $('body').on('change', '.meet-add-company-wrapper .manager-table-filter .form-checkbox input', function(e) {
+        meetAddFilterUpdate();
+    });
 
-	$('body').on('change', '.meet-add-company-wrapper .manager-table-filter .form-input-date input', function(e) {
-		meetAddFilterUpdate();
-	});
+    $('body').on('change', '.meet-add-company-wrapper .manager-table-filter .form-input-date input', function(e) {
+        meetAddFilterUpdate();
+    });
+
+    $('body').on('change', '.meet-add-company-wrapper .manager-table-filter .form-input-date input', function(e) {
+        meetAddFilterUpdate();
+    });
+
+    $('body').on('change', '.meet-add-company-wrapper .manager-table-filter-params-window-count-meets-input .form-input input', function(e) {
+        meetAddFilterUpdate();
+    });
+
+    $('body').on('change', '.meet-add-company-wrapper .manager-table-filter-params-window-input .form-input input', function(e) {
+        meetAddFilterUpdate();
+    });
+
+    $('body').on('keyup', '.meet-add-company-wrapper .manager-table-filter-params-window-input .form-input input', function(e) {
+        meetAddFilterUpdate();
+    });
+
+    $('body').on('change', '.meet-add-company-wrapper .manager-table-filter .form-select select', function(e) {
+        meetAddFilterUpdate();
+    });
+
+    $('body').on('change', '.meet-add-company-wrapper .manager-filter-select-list input', function() {
+        meetAddFilterUpdate();
+    });
 
 	$('.meet-add-company-wrapper .support-search-window form').each(function() {
 		var curForm = $(this);
@@ -389,6 +417,7 @@ $(document).ready(function() {
 
 	$('body').on('change', '.meet-add-company input', function() {
 		$('.meet-add-company-error').removeClass('visible');
+        $('.meet-add-step-ctrl-next a').eq(0).trigger('click');
 	});
 
 	$('body').on('click', '.manager-table-filter-params-window-title', function(e) {
@@ -487,31 +516,28 @@ function meetAddFilterUpdate() {
 	$('.meet-add-company').remove();
 	$('.meet-add-company-wrapper').addClass('loading');
 	$('.meet-add-company-wrapper .message').remove();
-	var filterData = {};
-	if ($('.filter-date-from').val() != '') {
-		filterData['dateFrom'] = $('.filter-date-from').val();
-	}
-	if ($('.filter-date-to').val() != '') {
-		filterData['dateTo'] = $('.filter-date-to').val();
-	}
-	for (var i = 0; i < $('.manager-table-filter .form-checkbox').length; i++) {
-		var curInput = $('.manager-table-filter .form-checkbox').eq(i).find('input');
-		if (curInput.prop('checked')) {
-			filterData[curInput.attr('name')] = 'Y';
-		}
-	}
-	if ($('.support-search-window-input input').val() != '') {
-		filterData[$('.support-search-window-input input').attr('name')] = $('.support-search-window-input input').val();
-	}
-	if ($('.meet-add-company-wrapper .pager a.active').length > 0) {
-		filterData['page'] = 'page-' + $('.meet-add-company-wrapper .pager a.active').html();
-	}
-	$.ajax({
-		type: 'POST',
-		url: $('.meet-add-ctrl').attr('data-url'),
-		dataType: 'json',
-		data: filterData,
-		cache: false,
+
+    var curForm = $('.manager-table-filter-params-window form');
+    var curData = curForm.serialize();
+    if ($('.manager-table-head a.active').length > 0) {
+        if (curData != '') {
+            curData += '&';
+        }
+        curData += 'sortname=' + $('.manager-table-head a.active').attr('data-sortname') + '&sortdir=' + $('.manager-table-head a.active').attr('data-sortdir');
+    }
+    if ($('.pager a.active').length > 0) {
+        if (curData != '') {
+            curData += '&';
+        }
+        curData += 'pager=' + $('.pager a.active').html();
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: $('.meet-add-ctrl').attr('data-url'),
+        dataType: 'json',
+        data: curData,
+        cache: false,
 		success: function(data) {
 			if (data.status) {
 				$('.meet-add-company-wrapper').removeClass('loading');
