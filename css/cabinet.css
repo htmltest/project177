@@ -1766,8 +1766,8 @@ h1 .dashboard-zone-item-status-inner {margin:5px 0 0 10px}
 .window-online-date-list .archive-card-days-date label input:checked+span::after,
 .window-online-date-list .archive-card-days-date label input:checked+label.error+span::after {display:none}
 
-.meet-add-confirm {max-width:575px; margin:40px 0 0 0; border-top:1px solid #e3e3e3}
-.meet-add-confirm-row {border-bottom:1px solid #e3e3e3; padding:19px 0 24px 0}
+.meet-add-confirm {margin:40px 0 0 0; border-top:1px solid #e3e3e3}
+.meet-add-confirm-row {max-width:575px; border-bottom:1px solid #e3e3e3; padding:19px 0 24px 0}
 .meet-add-confirm-row::after {content:""; display:block; clear:both}
 .meet-add-confirm-label {float:left; font-size:18px; line-height:27px}
 .meet-add-confirm-value {float:right; width:190px; font-weight:normal; font-size:18px; line-height:27px; position:relative}
@@ -1780,7 +1780,7 @@ h1 .dashboard-zone-item-status-inner {margin:5px 0 0 10px}
     .meet-add-confirm-value img {position:relative; top:auto; right:auto; transform:none; margin:0 13px 0 0; max-width:126px; vertical-align:middle}
 }
 
-.meet-add-confirm .meet-add-step-ctrl {margin:0; border:none; padding:27px 0 0 0}
+.meet-add-confirm .meet-add-step-ctrl {margin:-1px 0 0 0; padding:27px 0 0 0}
 
 .meet-add-datetime {max-width:1000px; margin:40px 0 0 0; position:relative}
 .meet-add-datetime.loading::after {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:rgba(255, 255, 255, 0.5) url(../images/loading.gif) no-repeat center; z-index:2}

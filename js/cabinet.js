@@ -373,6 +373,14 @@ $(document).ready(function() {
         meetAddFilterUpdate();
     });
 
+    $('body').on('keyup', '.meet-add-company-wrapper .support-search-window-input input', function(e) {
+        meetAddFilterUpdate();
+    });
+
+    $('body').on('change', '.meet-add-company-wrapper .manager-table-filter .form-select select', function(e) {
+        meetAddFilterUpdate();
+    });
+
     $('body').on('change', '.meet-add-company-wrapper .manager-filter-select-list input', function() {
         meetAddFilterUpdate();
     });
