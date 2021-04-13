@@ -38,7 +38,9 @@
       text-overflow: ellipsis;
       white-space: nowrap; }
     .select2-container .select2-selection--single .select2-selection__clear {
-      position: relative; }
+        position:absolute; right:25px; top:50%; margin-top:-8px; width:16px; height:16px; background:#fef7d9; line-height:18px; font-size:14px; border-radius:50%; text-align:center}
+    .select2-container .select2-selection--single .select2-selection__clear:hover {
+      background-color:#ffdd50}
   .select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered {
     padding-right: 8px;
     padding-left: 20px; }
@@ -256,7 +258,6 @@
     }
   .select2-container--default .select2-selection--single .select2-selection__clear {
     cursor: pointer;
-    float: right;
     font-weight: bold; }
   .select2-container--default .select2-selection--single .select2-selection__placeholder {
     color: #808080; }

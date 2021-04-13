@@ -300,6 +300,7 @@ $(document).ready(function() {
 			$('html, body').animate({'scrollTop': 0});
 			if (curStep == 1) {
 				meetAddTimeUpdate();
+				meetAddConfirmUpdate();
 			}
 			if (curStep == 2) {
 				meetAddConfirmUpdate();
@@ -313,7 +314,7 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-	$('.meet-add-step-ctrl-back a').click(function(e) {
+	$('body').on('click', '.meet-add-step-ctrl-back a', function(e) {
 		var curStep = $('.meet-add-step').index($('.meet-add-step.active'));
 		curStep--;
 		$('.meet-add-step.active').removeClass('active');
