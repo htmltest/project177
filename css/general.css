@@ -173,7 +173,6 @@ label.error {display:block; font-size:13px; line-height:19px; color:#df0e0e; mar
 .form-input-clear:hover {background-color:#ffdd50}
 .form-input.full .form-input-clear {display:block}
 
-
 @media screen and (max-width:1169px) {
 	.form-input span {left:20px; top:20px; font-size:20px; line-height:30px; color:#666}
 	.form-input span em {color:#ff143e}
@@ -1126,8 +1125,6 @@ footer .container {position:relative}
 @media screen and (max-width:1169px) {
 	.event-cards-tabs-content-inner .catalogue-list {margin:40px 0 50px 0}
 }
-
-/* ~~~~~ Îáùèå ñòèëè ~~~~~ */
 
 .registration-side {display:table-cell; vertical-align:top; padding:0 0 0 60px}
 .registration-side-title {color:#313131; max-width:377px}
